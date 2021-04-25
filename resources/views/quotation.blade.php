@@ -60,7 +60,7 @@
             <tr>
                 <td data-title="Modelo">{{ $details['quotation']['modelo'] }}</td>
                 <td data-title="Nombre cliente"> {{ $details['quotation']['nombre_completo'] }}</td>
-                <td data-title="Celular">{{ $details['quotation']['nombre_completo'] }}</td>
+                <td data-title="Celular">{{ $details['quotation']['numero_celular'] }}</td>
                 <td data-title="Departamento">{{ $details['quotation']['departamento'] }}</td>
                 <td data-title="Ciudad">{{ $details['quotation']['ciudad'] }}</td>
             </tr>
