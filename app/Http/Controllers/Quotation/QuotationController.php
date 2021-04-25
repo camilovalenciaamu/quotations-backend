@@ -16,8 +16,7 @@ class QuotationController extends Controller
         if ($diff['diff'] < 24 && $diff['message'] == 'esta')
             return response()->json(['error' => "¡Ya tienes una cotización, debes esperar 24 horas para crear otra!"], 400);
         $emails = [
-            'camiloamu82@gmail.com'
-            // 'nleon@processoft.com.co','ocalero@processoft.com.co','jmartinez@processoft.com.co'
+            'nleon@processoft.com.co','ocalero@processoft.com.co','jmartinez@processoft.com.co'
         ];
 
         $email->SendEmail($emails, $request);
