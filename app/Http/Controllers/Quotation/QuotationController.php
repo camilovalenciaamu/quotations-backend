@@ -12,16 +12,15 @@ class QuotationController extends Controller
 
     public function CreateQuotation(QuotationRequest $request, Quotation $quotation, QuotationService $service, SendEmailService $email)
     {
-        // $diff = $service->GetDiffInHours($request->email);
-        // if ($diff['diff'] < 24 && $diff['message'] == 'esta')
-        //     return response()->json(['error' => "¡Ya tienes una cotización, debes esperar 24 horas para crear otra!"], 400);
+        $diff = $service->GetDiffInHours($request->email);
+        if ($diff['diff'] < 24 && $diff['message'] == 'esta')
+            return response()->json(['error' => "¡Ya tienes una cotización, debes esperar 24 horas para crear otra!"], 400);
         $emails = [
-            // 'nleon@processoft.com.co','ocalero@processoft.com.co','jmartinez@processoft.com.co'
-            'camiloamu82@gmail.com'
+            'nleon@processoft.com.co','ocalero@processoft.com.co','jmartinez@processoft.com.co'
         ];
 
-        return $email->SendEmail($emails, $request);
-        // return response()->json(['cotizacion' => $quotation->create($request->validated())], 200);
+        $email->SendEmail($emails, $request);
+        return response()->json(['cotizacion' => $quotation->create($request->validated())], 200);
     }
 
 }
